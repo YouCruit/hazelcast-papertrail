@@ -7,7 +7,7 @@ RUN	apk update \
     && wget -nv -O /usr/local/bin/tini $TINI_URL \
     && sha1sum /usr/local/bin/tini \
     && echo "$TINI_SHA1  /usr/local/bin/tini" | sha1sum -cw \
-    && chmod a+rx /usr/local/bin/tini
+    && chmod a+rx /usr/local/bin/tini \
     && rm -rf /var/cache/apk/* \
     && rm /etc/rsyslog.conf
 
