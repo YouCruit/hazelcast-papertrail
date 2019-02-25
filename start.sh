@@ -8,4 +8,4 @@ sed -e "s/PAPERTRAIL_HOST/$papertrailHost/g" -e "s/PAPERTRAIL_PORT/$papertrailPo
 
 /usr/sbin/rsyslogd
 
-/opt/hazelcast/start-hazelcast.sh 2>&1 | logger 
+exec java -server ${JAVA_OPTS} ${JAVA_OPTS_DEFAULT} -cp ${CLASSPATH_DEFAULT} com.hazelcast.core.server.StartServer 2>&1 | logger -s

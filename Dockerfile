@@ -11,11 +11,11 @@ RUN	apk update \
     && rm -rf /var/cache/apk/* \
     && rm /etc/rsyslog.conf
 
+
+RUN addgroup syslog && adduser syslog -D -s /bin/true -G syslog
 ADD	rsyslog.conf /etc/rsyslog.conf
 ADD papertrail-bundle.pem /etc/ssl/papertrail-bundle.pem
 ADD start.sh /start.sh
 RUN chmod a+rx /start.sh
-
-EXPOSE 514
 
 CMD	["/usr/local/bin/tini", "/start.sh"]
