@@ -14,6 +14,7 @@ RUN	apk update \
 ADD	rsyslog.conf /etc/rsyslog.conf
 ADD papertrail-bundle.pem /etc/ssl/papertrail-bundle.pem
 ADD start.sh /start.sh
+RUN chmod a+rx /start.sh
 
 EXPOSE 514
 
